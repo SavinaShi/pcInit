@@ -1,0 +1,140 @@
+//定位全屏
+@mixin allcover {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+//定位全屏
+@mixin allFixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+//transform上下左右居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//开启GPU加速，增加图层，减少层级合并数目
+@mixin startZ {
+  transform: translateZ(0);
+}
+
+//字体大小、行高、字体
+@mixin ft($size, $line-height) {
+  font-size: $size;
+  line-height: $line-height;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+
+//定位上下居中
+@mixin tb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin ellipsisClamp($line: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@mixin placeholderColor($size: 13px, $color: #fff) {
+  &::-webkit-input-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    font-size: $size;
+    color: $color;
+  }
+}
+
+@mixin scrollBar($background: transparent, $color: #ccd0d3) {
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: $background;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background: transparent;
+  }
+}
+
+@mixin scrollBarNone {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+@mixin inputPlaceholderColor {
+  input::-webkit-input-placeholder {
+    color: #000000;
+  }
+  input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #000000;
+  }
+  input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #000000;
+  }
+  input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000000;
+  }
+  textarea::-webkit-input-placeholder {
+    color: #000000;
+  }
+  textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #000000;
+  }
+  textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #000000;
+  }
+  textarea:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000000;
+  }
+}
+
+//超出的省略
+@mixin textOverflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

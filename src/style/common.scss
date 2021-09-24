@@ -1,0 +1,191 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-family: InterRegular;
+    vertical-align: baseline;
+    background: transparent;
+    /* cursor: pointer; */
+}
+// $commonColor: #431fc1;
+// .app-txt {
+//     color: $commonColor;
+// }
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    border: solid white;
+}
+
+input[type="checkbox"]:after {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 0;
+    left: 0;
+    content: " ";
+    box-sizing: border-box;
+    border: 1px solid rgb(220, 223, 230);
+    color: #fff;
+    display: inline-block;
+    visibility: visible;
+    padding: 0px;
+    border-radius: 2px;
+}
+
+input[type="checkbox"]:checked:after {
+    content: "\2713";
+    background-color: #7400ff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+}
+
+//隐藏音量
+video::-webkit-media-controls-volume-control-container {
+    display: none;
+}
+//所有控件
+//video::-webkit-media-controls-enclosure{
+//  display: none;
+//}
+
+//音量按钮
+//video::-webkit-media-controls-mute-button {
+//  display: none;
+//}
+////video::-webkit-media-controls-toggle-closed-captions-button {
+////  display: none;
+////}
+////音量的控制条
+//video::-webkit-media-controls-volume-slider {
+//  display: none;
+//}
+
+//播放按钮
+video::-webkit-media-controls-play-button {
+    width: 45px;
+    height: 45px;
+    //display: none;
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    z-index: 999;
+}
+video::-internal-media-controls-button-panel {
+    opacity: 1 !important;
+}
+//观看的当前时间
+video::-webkit-media-controls-current-time-display {
+    position: absolute;
+    bottom: 10px;
+    right: 22%;
+    display: none;
+}
+////剩余时间
+video::-webkit-media-controls-time-remaining-display {
+    position: absolute;
+    bottom: 10px;
+    right: 13%;
+    display: none;
+}
+//全屏按钮
+video::-webkit-media-controls-fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 0%;
+    display: none !important;
+}
+video::-webkit-media-controls-panel {
+    opacity: 1 !important;
+}
+video::-webkit-media-controls-panel.transparent {
+    opacity: 1 !important;
+}
+//video::-internal-media-controls-button-panel{
+//  position: absolute;
+//  bottom: 20px;
+//  height: 60px;
+//}
+//进度条
+video::-webkit-media-controls-timeline {
+    //display: none;
+    width: calc(100% - 270px);
+    position: absolute;
+    bottom: 15px;
+    margin: 0 0 0 35px !important;
+    opacity: 1 !important;
+}
