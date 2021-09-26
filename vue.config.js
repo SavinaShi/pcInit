@@ -15,17 +15,6 @@ const cdn = {
     // "https://static.kaiboke.net/living/js/element.min.js",
   ],
 };
-const cdnsgp = {
-  css: [
-    // "https://kaibostatic.s3.ap-southeast-1.amazonaws.com/living/css/element.min.css",
-  ],
-  js: [
-    "https://kaibostatic.s3.ap-southeast-1.amazonaws.com/living/js/vue.min.js",
-    "https://kaibostatic.s3.ap-southeast-1.amazonaws.com/living/js/vue-router.min.js",
-    "https://kaibostatic.s3.ap-southeast-1.amazonaws.com/living/js/axios.min.js",
-    // "https://kaibostatic.s3.ap-southeast-1.amazonaws.com/living/js/element.min.js",
-  ],
-};
 module.exports = {
   publicPath: process.env.ROOT_URL,
   runtimeCompiler: true,
@@ -39,62 +28,21 @@ module.exports = {
     https: false,
     proxy: {
       "/living/": {
-        // target: "http://192.168.5.51:8001", // 孟
-        //  target: "http://192.168.3.230:8001",  // 李
-        // target: "http://192.168.3.232:8001",  // 马
-
-        // target: "http://192.168.3.231:8001", // 吕
-        // target: "https://dev-starrai.3tilabs.com/cms",  // 56
-        //  target: "https://test-starrai.3tilabs.com/cms",  // 56
-        // target:"https://api.kaiboke.net",  // 正式
-        // target:"https://asiaapi.kaiboke.net",  // 正式 sgp
         target: "https://uatapi.kaiboke.net",  // 56
-        // target: "https://daniel.3tilabs.com/cms",  // 55
         changeOrigin: true,
       },
       "/user/": {
-        // target: "http://192.168.5.51:8004", // 孟
-        //  target: "http://192.168.3.230:8004", // 李
-        // target: "http://192.168.3.232:8004", // 马
-        // target: "http://192.168.3.231:8004", // 吕
-        // target: "https://dev-starrai.3tilabs.com/cms",  // 56
-        // target: "https://test-starrai.3tilabs.com/cms",
-        // target: "https://daniel.3tilabs.com/cms",
-        // target:"https://api.kaiboke.net",
-        // target:"https://asiaapi.kaiboke.net",  // 正式 sgp
         target: "https://uatapi.kaiboke.net",
         changeOrigin: true,
       },
       "/template": {
-        // target: "http://192.168.5.51:8002", // 孟
-        //  target: "http://192.168.3.230:8002", // 李
-        // target: "http://192.168.3.232:8002",  //马
-        // target: "http://192.168.3.231:8002", // 吕
-        // target: "https://dev-starrai.3tilabs.com/cms",  // 56
-        //  target: "https://test-starrai.3tilabs.com/cms",
-        // target:"https://api.kaiboke.net",
-        // target:"https://asiaapi.kaiboke.net",  // 正式 sgp
         target: "https://uatapi.kaiboke.net",
-        // target: "https://daniel.3tilabs.com/cms",
         changeOrigin: true,
       },
       "/third": {
-        // target: "http://192.168.5.51:8003", // 孟
-        // target: "http://192.168.3.230:8003", // 李
-        // target: "http://192.168.3.232:8003", //马
-        // target: "http://192.168.3.231:8003",
-        // target: "https://dev-starrai.3tilabs.com/cms",  // 56
-        // target: "https://test-starrai.3tilabs.com/cms",
-        // target:"https://api.kaiboke.net",
-        // target:"https://asiaapi.kaiboke.net",  // 正式 sgp
         target: "https://uatapi.kaiboke.net",
-        // target: "https://daniel.3tilabs.com/cms",
         changeOrigin: true,
       },
-      // "/api": {
-      //   target: "http://172.16.0.105:9090", // Jam
-      //   changeOrigin: true,
-      // },
     },
   },
   chainWebpack: (config) => {
@@ -102,7 +50,7 @@ module.exports = {
     config.resolve.alias
       .set("@", resolve("src"))
       .set("@components", resolve("src/components"))
-      // .set("@views", resolve("src/views"))
+      .set("@views", resolve("src/views"))
       .set("@assets", resolve("src/assets"))
       .set("@style", resolve("src/style"))
       .set("@utils", resolve("src/utils"))
