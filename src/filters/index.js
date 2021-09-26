@@ -1,20 +1,5 @@
-import {platformOptions, scriptTypes} from "@constances/living";
 import i18n from "@assets/i18n";
 
-export const filterLivingPlatform = (val) => {
-    for (let i = 0; i < platformOptions.length; i++) {
-        if (val == platformOptions[i].value) {
-            return i18n.t(platformOptions[i].name);
-        }
-    }
-};
-export const filterLivingSayingType = (val) => {
-    for (let i = 0; i < scriptTypes.length; i++) {
-        if (val == scriptTypes[i].value) {
-            return i18n.t(scriptTypes[i].name);
-        }
-    }
-};
 export const formatSeconds = (value) => {
     var theTime = parseInt(value); // 秒
     var middle = 0; // 分
@@ -62,8 +47,7 @@ export function getWeek(date) {
     }
 }
 
-/**
-  * 通过传入开始时间和结束时间  算出时间差*/
+// 通过传入开始时间和结束时间算出时间差
 export function calTime(startTime, endTime) {
     // var timestamp=new Date().getTime(); //计算当前时间戳
     // var timestamp = (Date.parse(new Date()))/1000;//计算当前时间戳 (毫秒级)
@@ -90,20 +74,18 @@ export function calTime(startTime, endTime) {
     if (hours > 0) {
         result = "" + hours + "h " + result;
     }
-    if(date3>0){
+    if (date3 > 0) {
         return result
-    }else{
+    } else {
         return "0h"
     }
 }
 
-
-/**
-  * 通过传入开始时间和结束时间  算出时间差*/
+// 通过传入开始时间和结束时间算出时间差
 export function calTotalTime(startTime, endTime) {
     // var timestamp=new Date().getTime(); //计算当前时间戳
     // var timestamp = (Date.parse(new Date()))/1000;//计算当前时间戳 (毫秒级)
-    var date3 = parseFloat(endTime) -  parseFloat(startTime); //时间差的毫秒数
+    var date3 = parseFloat(endTime) - parseFloat(startTime); //时间差的毫秒数
     //计算出相差天数
     var days = Math.floor(date3 / (24 * 3600 * 1000));
     //计算出小时数
@@ -139,28 +121,21 @@ export function calTotalTime(startTime, endTime) {
         result = "" + hours + h + result;
     }
     return result
-
 }
 
-
-/**
-  * 通过传入开始时间和结束时间  算出时间差*/
-export function timeMeridiem(date,type) {
+// 通过传入开始时间和结束时间 算出时间差
+export function timeMeridiem(date) {
     date = parseFloat(date)
     if (date) {
         var timestamp = new Date(date)
         var h = timestamp.getHours();
         h = h < 10 ? ('0' + h) : h;
         var minute = timestamp.getMinutes();
-        var second = timestamp.getSeconds();
+        // var second = timestamp.getSeconds();
         minute = minute < 10 ? ('0' + minute) : minute;
-        second = second < 10 ? ('0' + second) : second;
+        // second = second < 10 ? ('0' + second) : second;
         var am = ''
         var pm = ''
-        // if(!type){
-        //     am = ' am '
-        //     pm = ' pm '
-        // }
         if (timestamp.getHours() >= 0 && timestamp.getHours() <= 12) {
 
             return h + ":" + minute + am
@@ -170,18 +145,17 @@ export function timeMeridiem(date,type) {
     }
 }
 
-/**
-  * 通过传入开始时间和结束时间  算出时间差*/
+// 通过传入开始时间和结束时间 算出时间差
 export function timeStandard(date) {
-    if(date){
+    if (date) {
         date = parseFloat(date)
         var timestamp = new Date(date)
         var h = timestamp.getHours();
         h = h < 10 ? ('0' + h) : h;
         var minute = timestamp.getMinutes();
-        var second = timestamp.getSeconds();
+        // var second = timestamp.getSeconds();
         minute = minute < 10 ? ('0' + minute) : minute;
-        second = second < 10 ? ('0' + second) : second;
+        // second = second < 10 ? ('0' + second) : second;
         if (timestamp.getHours() >= 0 && timestamp.getHours() <= 12) {
             return h + ":" + minute + ' '
         } else {
@@ -190,14 +164,13 @@ export function timeStandard(date) {
     }
 }
 
-/**
-  * 通过传入开始时间和结束时间  算出时间差*/
+// 通过传入开始时间和结束时间 算出时间差
 export function livingTime(startTime, endTime) {
     // var timestamp=new Date().getTime(); //计算当前时间戳
     // var timestamp = (Date.parse(new Date()))/1000;//计算当前时间戳 (毫秒级)
     var date3 = endTime - startTime; //时间差的毫秒数
     //计算出相差天数
-    var days = Math.floor(date3 / (24 * 3600 * 1000));
+    // var days = Math.floor(date3 / (24 * 3600 * 1000));
     //计算出小时数
     var leave1 = date3 % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
     var hours = Math.floor(leave1 / (3600 * 1000));
@@ -212,10 +185,9 @@ export function livingTime(startTime, endTime) {
 }
 
 
-/**
-  * 通过传入开始时间和结束时间  算出时间差*/
+// 通过传入开始时间和结束时间 算出时间差
 export function timeDay(time) {
-    if(time){
+    if (time) {
         let date = new Date(time)
         let yearVal = date.getFullYear(); //年;
         let monthVal = date.getMonth() + 1; //月;
@@ -235,9 +207,6 @@ export function getWeekTxt(date) {
     date = parseFloat(date)
     var week;
     var time = new Date(date);
-    var y = time.getFullYear();
-    var m = time.getMonth() + 1;
-    var d = time.getDate();
     let zhWeek = new Array("星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")
     let enWeek = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
     var weekArray = i18n.locale == 'zh' ? zhWeek : enWeek
@@ -375,7 +344,7 @@ export function toLocaleString(num) {
 }
 
 
-export function unitData(value,livingPlatform) {
+export function unitData(value, livingPlatform) {
     if (value) {
         // console.log(livingPlatform,'livingPlatform',value)
         value = parseFloat(value) > 0 && value.toString().indexOf(',') != -1 ? value.replace(/,/gi, '') : value
@@ -400,10 +369,10 @@ export function unitData(value,livingPlatform) {
             newValue[1] = 'k';
             newValue[0] = (value % 1000) == 0 ? parseFloat(value / 1000) + '' : Math.floor((value / 1000) * 100) / 100;
         } else { // 万
-            if(livingPlatform == 3 || livingPlatform == 4){
+            if (livingPlatform == 3 || livingPlatform == 4) {
                 newValue[1] = 'k';
-                newValue[0] = fmoney((value % 1000) == 0 ? parseFloat(value / 1000) + '' : Math.floor((value / 1000) * 100) / 100,2)
-            }else{
+                newValue[0] = fmoney((value % 1000) == 0 ? parseFloat(value / 1000) + '' : Math.floor((value / 1000) * 100) / 100, 2)
+            } else {
                 const fm = 10000;
                 newValue[1] = 'w';
                 newValue[0] = Math.floor((value / fm) * 100) / 100 + '';
@@ -426,10 +395,10 @@ export function fmoney(s, n) {
      * n：保留几位小数
      * */
     n = n > 0 && n <= 20 ? n : 2;
-    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+    s = parseFloat((s + "").replace(/[^\d\\.-]/g, "")).toFixed(n) + "";
     var l = s.split(".")[0].split("").reverse(),
         r = s.split(".")[1];
-   var t = "";
+    var t = "";
     for (var i = 0; i < l.length; i++) {
         t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
     }
@@ -482,10 +451,25 @@ export function AverageDuration(value) {
     }
 }
 
+/**
+ * 传入时间戳转时间格式
+ * @param time
+ * @returns {string}
+ */
+export function timeToDate(time) {
+    if (time) {
+        let date = new Date(time)
+        let yearVal = date.getFullYear(); //年;
+        let monthVal = date.getMonth() + 1; //月;
+        let dayVal = date.getDate(); //日;
+        monthVal = monthVal < 10 ? "0" + monthVal : monthVal;
+        dayVal = dayVal < 10 ? "0" + dayVal : dayVal;
+        return yearVal + '-' + monthVal + '-' + dayVal
+    }
+}
+
 export default {
-    filterLivingPlatform,
     formatSeconds,
-    filterLivingSayingType,
     getWeek,
     calTime,
     timeMeridiem,
@@ -504,17 +488,3 @@ export default {
     timeToDate
 };
 
-/**
- * 传入时间戳转时间格式
- * @param time
- * @returns {string}
- */
-export function timeToDate(time) {
-    if(time){
-        let date = new Date(time)
-        let yearVal = date.getFullYear(); //年;
-        let monthVal = date.getMonth() + 1; //月;
-        let dayVal = date.getDate(); //日;
-        return yearVal + '-' + monthVal + '-' + dayVal
-    }
-}

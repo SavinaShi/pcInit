@@ -4,14 +4,14 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/', redirect: '/HelloWorld' },
+    { path: '/', redirect: '/Sidebar' },
     {
-        path: "/",
+        path: "/Sidebar",
         component: () =>
-            import(/* webpackChunkName: "Home" */ "../components/HelloWorld.vue"),
-        meta: { title: "HelloWorld", requiresAuth: true },
+            import(/* webpackChunkName: "Home" */ "../components/Sidebar.vue"),
+        meta: { title: "Sidebar", keepAlive: true },
     },
-    { path: '*', redirect: '/HelloWorld' }
+    { path: '*', redirect: '/Sidebar' }
 ];
 
 const router = new VueRouter({
