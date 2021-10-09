@@ -2,7 +2,7 @@ import Vue from 'vue'
 //  安装   vue-i18n
 // 引入使用
 import VueI18n from 'vue-i18n'
-import locale from 'element-ui/lib/locale'
+// import locale from 'element-ui/lib/locale'
 
 import enLocale from 'element-ui/lib/locale/lang/en'
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
